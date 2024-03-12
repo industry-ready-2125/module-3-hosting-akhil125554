@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GVP STUDENT REGISTER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            background: url('ground.png') center/cover;
+        }
+        
+        #register-container {
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            background-color: #3498db;
+        }
+        
+        h2 {
+            color: black;
+            text-align: center;
+        }
+        
+        label {
+            margin: 10px 0;
+            color: black;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="register-container">
+        <h2><b>GVP STUDENT REGISTER</b></h2>
+        <!-- Add onsubmit attribute to call the validateForm function -->
+        <form action="#" onsubmit="return validateValues()">
+            <label for="fullname">Username:</label>
+            <input type="text" id="fullname" name="fullname" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="confirmpass">Confirm password:</label>
+            <input type="password" id="confirmpass" name="confirmpass" required><br>
+
+            <label for="email">Email ID:</label>
+            <input type="text" id="email" name="email" required><br>
+
+            <label for="mobile">Mobile number:</label>
+            <input type="text" id="mobile" name="mobile" required><br>
+
+            <label for="dob">Date Of Birth:</label>
+            <input type="text" id="dob" name="dob" required><picture>
+                <source media="(min-width: )" srcset="">
+                <img src="" alt="">
+            </picture>
+
+            <label for="add">Address:</label>
+            <input type="text" id="add" name="add" required>
+
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validateValues() {
+            var usname = document.getElementById('fullname').value;
+            var passwd = document.getElementById('password').value;
+            var cpasswd = document.getElementById('confirmpass').value;
+            var email = document.getElementById('email').value;
+            var phno = document.getElementById('mobile').value;
+
+    
+            // Validate Username
+            if (usname.length < 6 || !/^[a-zA-Z0-9]+$/.test(usname)) {
+                alert("Invalid Username, it must contain at least 6 alphanumeric characters.");
+                return false;
+            }
+    
+            // Validate Password
+            if (passwd.length < 8 || !/^[a-zA-Z0-9!@#$%^&*]+$/.test(passwd)) {
+                alert("Invalid Password, it must contain at least 8 characters with at least one special character.");
+                return false;
+            }
+    
+            // Validate Confirm Password
+            if (passwd !== cpasswd) {
+                alert("Password and confirm password must be the same.");
+                return false;
+            }
+    
+            // Validate Email
+            if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/.test(email)) {
+                alert("Invalid email format.");
+                return false;
+            }
+    
+            // Validate Mobile Number
+            if (!/^[6-9]\d{9}$/.test(phno)) {
+                alert("Invalid mobile number. It should be 10 digits and start with a number from 6-9.");
+                return false;
+            }
+    
+            return true;
+        }
+    </script>
+    
+
+</body>
+</html>
